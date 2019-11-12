@@ -35,6 +35,17 @@ public class Controller {
 		return artistdal.findall();
 	}
 	
+	@GetMapping(value = "/artists/{id}")
+	private Artist findartist(@PathVariable("id") String id){
+		return artistdal.find(id);
+	}
+	@GetMapping(value = "/albums/{id}")
+	private Album findalbum(@PathVariable("id") String id){
+		return albumdal.find(id);
+	}
+	
+	
+	
 	@GetMapping(value = "/artists/{id}/albums")
 	private List<Album> findalbums(@PathVariable("id") String id){
 		return artistdal.getArtistAlbums(id);
