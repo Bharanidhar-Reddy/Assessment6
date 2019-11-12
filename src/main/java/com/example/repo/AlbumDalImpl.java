@@ -38,5 +38,11 @@ public class AlbumDalImpl implements AlbumDal{
 		b.setTracks(a);
 		return mongo.save(b);
 	}
+	
+	@Override
+	public boolean deleteAlbum(String id) {
+		Album b=find(id);
+		return mongo.remove(b).wasAcknowledged();
+	}
 
 }

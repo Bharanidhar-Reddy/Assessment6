@@ -10,4 +10,5 @@ public interface AlbumDal {
 	public Album find(String id);
 	public List<Track> getAlbumTracks(String id);
 	public Album addTrackToAlbum(Track a,Album b);
+	boolean deleteAlbum(String id);
 }

@@ -3,6 +3,7 @@ package com.model.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -60,5 +61,18 @@ public class Controller {
 		trackdal.create(t);
 		albumdal.addTrackToAlbum(t, albumdal.find(id2));
 		return t;
+	}
+	@DeleteMapping(value = "/artists/{id}")
+	private boolean deleteartist(@PathVariable("id") String id){
+		return artistdal.deleteArtist(id);
+	}
+	@DeleteMapping(value = "/albums/{id}")
+	private boolean deletealbum(@PathVariable("id") String id){
+		return albumdal.deleteAlbum(id);
+	}
+	
+	@DeleteMapping(value = "/tracks/{id}")
+	private boolean deletetrack(@PathVariable("id") String id){
+		return trackdal.deleteTrack(id);
 	}
 }
